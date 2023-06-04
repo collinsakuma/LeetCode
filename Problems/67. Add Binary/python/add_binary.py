@@ -1,3 +1,11 @@
+# Binary Add Rules:
+#   0 + 0 = 0
+#   1 + 0 = 1
+#   1 + 1 = 0 (carry 1)
+#   1 + 1 + (carry 1) = 1 (carry 1)
+
+
+
 class Solution:
     def addBinary(self, a, b):
         lengthOne, lengthTwo = -len(a), -len(b)
