@@ -5,7 +5,8 @@ class Solution:
         return int(sqrt(n))
     
 
-# n = 10
+# n = 10 ( 1 = on 0 = off )
+
 # r1  1 1 1 1 1 1 1 1 1 1
 # r2  1 0 1 0 1 0 1 0 1 0
 # r3  1 0 0 0 1 1 1 0 0 0
