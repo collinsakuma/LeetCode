@@ -10,4 +10,4 @@ class Solution:
                 return [dict[n], i]
             else:
                 dict[target-n] = i
-                #  if no match is found a new entry to the dictionary is added target -n: i
+                #  if no match is found a new entry to the dictionary is added (target - n): i
