@@ -18,3 +18,6 @@ class Solution:
                 rounds_played += (remaining_teams / 2)
                 remaining_teams = (remaining_teams / 2)
         return int(rounds_played) # return the number of games that are played thoughout the tournament
+    
+    def numberOfMatchesTwo(self, n):
+        return n - 1 # Solution from leetcode. 
