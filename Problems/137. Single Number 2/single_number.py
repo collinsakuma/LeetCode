@@ -10,4 +10,9 @@ class Solution:
         for key in dict: # loop though keys of the dictionary
             if dict[key] == 1: # if the value of the key == 1 return that key
                 return key 
+            
+    def singleNumberTwo(self, nums):
+        for num in nums: # loop through the list of numbers
+            if nums.count(num) == 1: # count the amount of times that num occurs in the nums list
+                return num # if that number occurs onece return that number
         
