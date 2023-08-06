@@ -10,4 +10,8 @@ class Solution:
             n -= 1 # reduce n by 1 next loop will loop at len(num) - 1
         return ""
     
-    
+    def largestOddNumberTwo(self, num):
+        for i in range(len(num) - 1, -1, -1): # loop though range of len(num) backwards
+            if num[i] in {'1', '3', '5', '7', '9'}: # if num in dictionary of odd numbers
+                return num[:i + 1] # return number up to i + 1
+        return "" 
