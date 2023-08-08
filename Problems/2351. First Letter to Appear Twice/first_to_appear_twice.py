@@ -10,3 +10,15 @@ class Solution:
             
             if dict[i] == 2: # check if i has a value of 2 meaning that it has appeared twice in the string. If true return that letter
                 return i
+            
+
+    # second solution with some redundant code removed
+    def repeatedCharacterTwo(self, s):
+        dict = {}
+
+        for i in s:
+            if i not in dict:
+                dict[i] = 1
+            else: # becuase we are only looking for the first letter to repeat twice if i already exist as a key in dict
+                  # we can return that i because it will be the first letter that already has an entry in the dict meaning that it is appearing for the second time
+                return i
