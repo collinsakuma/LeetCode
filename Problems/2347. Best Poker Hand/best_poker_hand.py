@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution:
     def bestHand(self, ranks, suits):
         # if any suit appears 5 times in the suits array return that you have a Flush
@@ -10,3 +12,16 @@ class Solution:
             if ranks.count(num) == 2:
                 return "Pair"
         return "High Card" # if no other out comes have been reached then return that we have a high card
+    
+
+
+    def bestHandTwo(self, ranks, suits):
+        cnt = Counter(ranks) # dictionary method to keep track of each value in ranks and how many times each value appears in the list
+        if len(set(suits)) == 1: # if a len of a set() of suits is only 1 index long that means that all values in the list where the same
+            return "Flush"
+        elif max(cnt.values()) >= 3: # if the max value of cnt is greater than or equal to 3 that means there is at least a three of a kind
+            return "Three of a Kind"
+        elif max(cnt.values()) == 2: # if max value of cnt is equal to 2 that means there is a two pair
+            return "Pair"
+        else:
+            return "High Card"
