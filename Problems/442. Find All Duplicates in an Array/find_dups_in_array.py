@@ -10,3 +10,11 @@ class Solution:
             else:
                 nums[num - 1] = - nums[num - 1] # if value is not negative make the number at index num-1 negative
         return answer
+    
+    # original number that I came up with runs two slow time limit exceeded error
+    def findDuplicatesTwo(self, nums):
+        answer = []
+        for num in set(nums):
+            if nums.count(num) == 2:
+                answer.append(num)
+        return answer
