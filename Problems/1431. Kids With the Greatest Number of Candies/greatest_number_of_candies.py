@@ -6,3 +6,11 @@ class Solution:
             if candies[i] + extraCandies < sorted(candies)[-1]: # if candies at index i is not greater than the most candies that any child has at the begining ( sorted index in assending order and the last index)
                 output[i] = False # that means that child does not have the most candies of all set the output at index i to False
         return output
+    
+    def kidsWithCandiesTwo(self, candies, extraCandies):
+        output = [True] * len(candies)
+
+        for j, i in enumerate(candies): # use of enumerate() method instaed of range(), slightly cleaner code
+            if i + extraCandies < sorted(candies)[-1]:
+                output[j] = False
+        return output
