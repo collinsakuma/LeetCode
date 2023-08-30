@@ -15,3 +15,31 @@ class Solution:
                 output += s[i]
         
         return output # return the new string with the vowels reversed
+    
+
+
+    # second solution, two pointer, faster runtime but higher memory usage( only .1 mb )
+    
+    def reverseVowelsTwo(self, s: str) -> str:
+        vowels = "aAeEiIoOuU" # string of vowels capital and lowercase
+        list_s = list(s) # conver string s into a list
+
+        # set two pointer variables to opposite ends of the list
+        left = 0
+        right = len(s) - 1
+            
+        while left < right: # loop untill the two pointers intersect
+            if list_s[left] in vowels and list_s[right] in vowels: # if both left and right are vowels switch the two values for eachother
+                list_s[left], list_s[right] = list_s[right], list_s[left]
+                # increment both left and right in the appropriate direction
+                left += 1
+                right -= 1
+            
+        # if left and right are both not vowels check each individually    
+            elif list_s[left] not in vowels: # check if left if not a vowel
+                left += 1 # if not increment left by 1
+            
+            elif list_s[right] not in vowels: # check if right is not a vowel
+                right -= 1 # if not increment(subtract) right by 1
+        
+        return "".join(list_s) # rejoin the list into a string and return it
