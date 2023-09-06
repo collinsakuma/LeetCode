@@ -17,3 +17,12 @@ class Solution:
             curr_alt += gain[i] # each time through the loop add the height gain at index i to curr_alt
             max_alt = max(max_alt, curr_alt) # each time through the loop compare the curr_alt to the max_alt and set max_alt to which is higher
         return max_alt # after are indexes have been looped through return the max_alt
+    
+    def largestAltitueThre(self, gain):
+        max_altitude = 0
+        curr_altitude = 0
+
+        for i in gain:
+            curr_altitude += i
+            max_altitude = max(max_altitude, curr_altitude)
+        return max_altitude
