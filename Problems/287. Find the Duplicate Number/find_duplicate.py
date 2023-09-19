@@ -7,3 +7,11 @@ class Solution:
         # count.most_common()[0] will return the first tuple in the count object
         # count.most_common()[0][0] will return the key in the tuple returned above
         return count.most_common()[0][0]
+    
+    def findDuplicateTwo(self, nums):
+        dictionary = dict() # create a dictionary
+        for num in nums: # loop though nums
+            if num not in dictionary: # if number not in the dictionary create a new instance with num as the key 
+                dictionary[num] = 1
+            else: # if the num already in the dictionary the duplicate number has been found return num
+                return num
