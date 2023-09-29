@@ -12,3 +12,16 @@ class Solution:
                 decrease = False # set decreasing to false
         
         return increase or decrease # return True if either increase or decrease if true, return false is neither is true
+    
+
+    # second attempt at the question. Similar approach use of while loop and two pointers instead
+    def isMonotonicTwo(self, nums):
+        increasing, decreasing = True, True
+        i, j = 0, 1
+
+        while j < len(nums):
+            if nums[i] < nums[j]:
+                decreasing = False
+            if nums[i] > nums[j]:
+                increasing = False
+        return increasing or decreasing
