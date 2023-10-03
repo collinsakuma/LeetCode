@@ -9,3 +9,13 @@ class Solution:
                 if nums[i] == j:
                     pairs += 1
         return pairs # return number of pairs found
+    
+
+    def numIdenticalPairsTwo(self, nums):
+        pairs = 0 # count of number of valid pairs
+
+        for num in set(nums): # loop though a list of unique numbers in nums
+            count = nums.count(num) # count how many time each number is in nums
+            pairs += count * (count - 1) // 2
+        
+        return pairs
