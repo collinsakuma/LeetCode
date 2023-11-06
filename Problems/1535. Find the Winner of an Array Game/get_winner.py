@@ -14,3 +14,18 @@ class Solution:
                 loser = arr.pop(0)
                 arr.append(loser)
         return arr[0] # return the winner
+    
+
+    def getWinnerTwo(self, arr, k):
+        count = 0 # count of consecutive wins
+        winner = arr[0] # winner will always be the person first in the last
+        
+        for i in range(1, len(arr)): # loop through a range of all competing numbers to winner
+            if arr[i] > winner: # if value at i is greater than winner set new winner
+                winner = arr[i]
+                count = 1 # reset count of consecutive wins to 1
+            else:
+                count += 1 # current winner remains the same increase their count of wins by 1
+            
+            if count == k: # if number of consecutive wins reaches the win condition k, return the winner 
+                return winner
