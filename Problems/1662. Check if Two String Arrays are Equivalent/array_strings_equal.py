@@ -1,5 +1,6 @@
 class Solution:
     def arrayStringsAreEqual(self, word1, word2):
+        # join and compare the both arrays into strings
         return "".join(word1) == "".join(word2)
     
 
