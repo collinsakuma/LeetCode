@@ -1,5 +1,5 @@
 class Solution:
-    def largestSumAfterKNegations(self, nums: List[int], k: int) -> int:
+    def largestSumAfterKNegations(self, nums, k):
         nums = sorted(nums)
         for i in range(len(nums)):
             if nums[i] < 0 and k > 0:
