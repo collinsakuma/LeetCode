@@ -9,3 +9,17 @@ class Solution:
                 # the count of letters should be equal to the length of the words list returing a modulo of 0
                 return False # if 0 is not the remainder then equal strings cannot be made and return 0
         return True
+    
+    def makeEqualTwo(self, words):
+        dict = {}
+        joined_words = "".join(words)
+
+        for letter in joined_words:
+            if letter not in dict:
+                dict[letter] = joined_words.count(letter)
+
+        for j in dict.values():
+            if j % len(words) != 0:
+                return False
+
+        return True
