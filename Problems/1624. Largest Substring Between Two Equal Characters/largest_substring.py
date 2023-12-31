@@ -10,3 +10,15 @@ class Solution:
                     ans = max(ans, j-i-1) 
                     # find the length between the two matching letters (hence the -1)
             return ans
+
+    def maxLengthBetweenEqualCharacterTwo(self, s):
+        first_dict = {} # dictionary to keep track of letter that have been iterated over already
+        ans = -1 # set default answer to -1 to be returned if no matching pairs are found
+
+        for i in range(len(s)): # loop though range of s looking for letter already in the dict, set new answer if new longer length has been found
+            if s[i] in first_dict:
+                ans = max(ans, i - first_dict[s[i]] - 1)
+            else:
+                first_dict[s[i]] = i
+
+        return ans
