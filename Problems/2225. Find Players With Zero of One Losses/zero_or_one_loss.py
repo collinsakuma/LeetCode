@@ -27,3 +27,29 @@ class Solution:
         answer[0], answer[1] = sorted(answer[0]), sorted(answer[1])
 
         return answer
+    
+    def findWinnersTwo(self, matches):
+        # keep track of players in different categories bases on their losses
+        zeroLoss, oneLoss, moreLoss = set(), set(), set()
+
+        for match in matches: # loop through each match set winner and loser
+            winner, loser = match[0], match[1]
+
+            # Add winner.
+            if winner not in oneLoss and winner not in moreLoss:
+                zeroLoss.add(winner)
+
+            # Add or move loser.
+            if loser in zeroLoss:
+                zeroLoss.remove(loser)
+                oneLoss.add(loser)
+            elif loser in oneLoss:
+                oneLoss.remove(loser)
+                moreLoss.add(loser)
+            elif loser in moreLoss:
+                continue
+            else:
+                oneLoss.add(loser)
+
+        answer = [sorted(list(zeroLoss)), sorted(list(oneLoss))]
+        return answer
