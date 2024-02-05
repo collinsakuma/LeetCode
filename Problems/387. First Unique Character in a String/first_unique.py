@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution:
     def firstUniqChar(self, s):
         for i, letter in enumerate(s):
@@ -11,7 +13,7 @@ class Solution:
     
 
     # second solution, solving by creating a dictionary
-    def firstUniqChar(self, s):
+    def firstUniqCharTwo(self, s):
         dict = {} # create an empty dictionary to keep track of letters
         for letter in s:
             # for each letter in s if the letter is not in dict create a new entry to dict with the letter as the key and a starting value of 1
@@ -29,4 +31,12 @@ class Solution:
                 index = i
                 break
         return index
+    
+    def firstUniqCharThree(self, s):
+        counter = Counter(s) # use the counter methods to create a dictionary where the letteer is the key and the values is its rate of occurance in s
+
+        for idx in range(len(s)): # loop though a range of the length of the string
+            if counter[s[idx]] == 1: # check letter in the counter and if its value is 1 return its index
+                return idx
+        return -1 # if no unique letters return -1 
 
