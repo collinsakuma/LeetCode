@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution:
     def groupAnagrams(self, strs):
         output = {} # dict to keep track of the letters in the word as the key, and the words that all contain those letters as the values
@@ -11,3 +13,19 @@ class Solution:
                 output[sorted_word].append(word) # append the word to its matching list
 
         return list(output.values()) # return the dict as a list only caintaing the values from the dict
+    
+    # First solution Time Limit Exceeded (TLE)
+    def groupAnagramsTwo(self, strs):
+        output = [[strs.pop()]]
+
+        while strs:
+            word = strs.pop()
+            for anagram in range(len(output)):
+                flag = True
+                if Counter(word) == Counter(output[anagram][0]):
+                    output[anagram].append(word)
+                    flag = False
+                    break
+            if flag:
+                output.append([word])
+        return output
