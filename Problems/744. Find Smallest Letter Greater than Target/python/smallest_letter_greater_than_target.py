@@ -37,3 +37,12 @@ class Solution:
             if alphabet[i] > alphabet[target]:
                 return i
         return letters[0]
+    
+
+    # for this second solution a dictionary of letter: value pairs is not needed because python 
+    # can compare the letters as it gives letters weighted values. I.E. (a < b = true)
+    def nextGreatestLetterTwo(self, letters, target):
+        for letter in letters:
+            if letter > target:
+                return letter
+        return letters[0]
