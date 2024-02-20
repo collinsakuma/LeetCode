@@ -12,3 +12,9 @@ class Solution:
         # take the sum of the nums given
         # the difference between the two is the missing number from the list nums
         return sum(range(len(nums) + 1)) - sum(nums)
+    
+    def missingNumberThree(self, nums):
+        total = sum(range(len(nums) + 1)) # total what the sum in range of nums plus the missing number should be
+        nums_sum = sum(nums) # total of nums ( missing the number )
+        
+        return total - nums_sum #return the missing number
