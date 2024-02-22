@@ -22,3 +22,21 @@ class Solution:
                     # combine the string with x before index j
                     return n[:j] + str(x) + n[j:]
             return n + str(x)
+        
+    def maxValueTwo(self, n, x):
+        if n[0] == '-': # if n is negative 
+            i = 1 # set i to 1 as index 0 is '-'
+            # while i is less than length of n and current value at index i is less than of equal to x
+            while i < len(n) and int(n[i]) <= x:
+                # increment i by 1
+                i += 1
+            
+        else:
+            # set i equal to 0
+            i = 0
+            # loop while i is less than length n and value at index i is greater than or equal to x
+            while i < len(n) and int(n[i]) >= x:
+                # increment i by 1
+                i += 1
+
+        return n[:i] + str(x) + n[i:]
