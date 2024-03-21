@@ -19,3 +19,16 @@ class Solution:
             head = prev
 
         return head
+    
+    # second solution using recursion
+    def reverseListTwo(self, head):
+        # if head is empty or has reached the list end
+        if head == None or head.next == None:
+            return head
+        # reverse the rest list
+        rest = self.reverseList(head.next)
+        # put the first element at the end
+        head.next.next = head
+        head.next = None
+
+        return rest
