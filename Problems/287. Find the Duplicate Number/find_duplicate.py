@@ -15,3 +15,10 @@ class Solution:
                 dictionary[num] = 1
             else: # if the num already in the dictionary the duplicate number has been found return num
                 return num
+            
+    def findDuplicateThree(self, nums):
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return num
+            seen.add(num)
