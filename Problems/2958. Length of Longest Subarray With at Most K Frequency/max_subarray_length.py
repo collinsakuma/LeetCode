@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class Solution:
     def maxSubarrayLength(self, nums, k):
         frequency = defautdict(int)
