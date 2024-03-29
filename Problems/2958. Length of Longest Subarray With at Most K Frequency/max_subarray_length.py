@@ -2,7 +2,7 @@ from collections import defaultdict
 
 class Solution:
     def maxSubarrayLength(self, nums, k):
-        frequency = defautdict(int)
+        frequency = defaultdict(int)
         n = len(nums)
 
         i, j, output = 0, 0, 1
