@@ -18,7 +18,7 @@ class Solution:
 
     def getWinnerTwo(self, arr, k):
         count = 0 # count of consecutive wins
-        winner = arr[0] # winner will always be the person first in the last
+        winner = arr[0] # winner will always be the person first in the list
         
         for i in range(1, len(arr)): # loop through a range of all competing numbers to winner
             if arr[i] > winner: # if value at i is greater than winner set new winner
@@ -29,3 +29,30 @@ class Solution:
             
             if count == k: # if number of consecutive wins reaches the win condition k, return the winner 
                 return winner
+            
+    def getWinnerThree(self, arr, k):
+        # edge case where all players will play, return the highest player 
+        if k >= len(arr):
+            return max(arr)
+
+        wins = 0 # keep count of wins
+        # initalize player_1 and player_2 with the first two people in the list
+        player_1 = arr.pop(0)
+        player_2 = arr.pop(0)
+
+        # loop untill k number of wins has been reached
+        while wins < k:
+            # if player 1 wins 
+            if player_1 > player_2:
+                wins += 1 # increment wins
+                arr.append(player_2) # move player 2 to the end of the list
+                player_2 = arr.pop(0) # set new player 2
+
+            else:
+                # if player 2 wins
+                wins = 1 # reset wins to 1
+                arr.append(player_1) # move player 1 to the end of the list
+                player_1 = player_2 # make player 2 player 1
+                player_2 = arr.pop(0) # set new player 2
+        
+        return player_1 # return the player who has achieved k numbers of wins
