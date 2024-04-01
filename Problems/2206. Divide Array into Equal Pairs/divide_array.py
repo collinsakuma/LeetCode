@@ -16,3 +16,14 @@ class Solution:
         
         # if there are no numbers in the dict then the array consisted of equal pairs
         return not seen_nums
+    
+
+    # first solution I came up with Runs Slower
+    def divideArrayTwo(self, nums):
+        # loop though a set a nums
+        for num in set(nums):
+            # if the modulo of the count of num in nums isnt 0 then there are not equal pairs in the array
+            if nums.count(num) % 2 != 0:
+                return False
+        
+        return True # if all elements pass then array consist of equal pairs
