@@ -20,3 +20,22 @@ class Solution:
                 mirror_dict[s[i]] = t[i]
 
         return True
+    
+    def isIsomorphicTwo(self, s, t):
+        # two empty list to map the index value of the letters
+        map_s = []
+        map_t = []
+
+        # loop through s
+        for letter in s:
+            # for each letter append the index that it appears first into map_s
+            map_s.append(s.index(letter))
+        
+        for letter in t:
+            # for each letter append the letter that it appears forst into map_t
+            map_t.append(t.index(letter))
+        
+        if map_s == map_t: # if the two map arrays are the same the the string is isomorphic
+            return True
+
+        return False
