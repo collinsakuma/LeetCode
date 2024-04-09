@@ -7,3 +7,14 @@ class Solution:
             else: # if there are no more students who will take the first sandwich break from the loop
                 break 
         return len(sandwiches) # return the number of students left in line 
+    
+    # same concept different way of writing it
+    def countStudentsTwo(self, students, sandwiches):
+        while sandwiches:
+            sandwich = sandwiches.pop(0)
+            if sandwich not in students:
+                return len(sandwiches) + 1
+            else:
+                students.remove(sandwich)
+
+        return 0
