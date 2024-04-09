@@ -21,3 +21,19 @@ class Solution:
                 max_sum = max(max_sum, temp_sum)
                 temp_sum = nums[i]
         return max(max_sum, temp_sum) # return either max_sum of temp_sum whichever is greater
+    
+    def maxAscendingSumTwo(self, nums):
+        max_sum, cur_sum = 0, nums[0]
+
+        for i in range(1, len(nums)):
+            # if current number is greater than previous number
+            if nums[i] > nums[i - 1]:
+                # increment running sum
+                cur_sum += nums[i]
+            # if not assending
+            else:
+                # check if new max sum has been found
+                max_sum = max(max_sum, cur_sum)
+                # set new running sum to the current element
+                cur_sum = nums[i]
+        return max(max_sum, cur_sum)
