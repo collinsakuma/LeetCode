@@ -28,3 +28,31 @@ class Solution:
                 right = left + 1
         # return the length of the longest substring build of unique characters
         return max(max_length, len(sub_string))
+    
+    def lengthOfLongestSubstring(self, s):
+        # max length of a substring with no repeating characters
+        max_length = 0
+        # set of unique characters
+        char_set = set()
+        # left pointer 
+        left = 0
+
+        for right in range(len(s)):
+            # if character not in character set
+            if s[right] not in char_set:
+                # add character to the set of unique characters
+                char_set.add(s[right])
+                # check if a new max length is found
+                max_length = max(max_length, right - left + 1)
+            # if character is already in the character set
+            else:
+                # while the characters is in the set
+                while s[right] in char_set:
+                    # remove character at pointer left from the set 
+                    # keep removing left most character untill character at index right is not longer in the set
+                    char_set.remove(s[left])
+                    # increment left 
+                    left += 1
+                # once removed left character that is the same as right, add right to the set
+                char_set.add(s[right])
+        return max_length
