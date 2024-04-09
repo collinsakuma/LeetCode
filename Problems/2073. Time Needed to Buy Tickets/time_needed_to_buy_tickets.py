@@ -13,3 +13,21 @@ class Solution:
                     # people after them in line to buy their tickets to exit the loop. 
                     break
         return answer # return seconds it took for person k to buy their tickets. 
+    
+    def timeRequiredToBuyTwo(self, tickets, k):
+        seconds = 0
+
+        # loop while the target person still has tickets to buy
+        while tickets[k] != 0:
+            for index, ticket in enumerate(tickets):
+                # if that persons doesnt need to buy any more tickets do nothing
+                if ticket == 0:
+                    None
+                # if at the target purchaser and they are buying their last ticket, return the time plus 1 for purchasing the last ticket
+                elif index == k and tickets[index] == 1:
+                    return seconds + 1
+                # person buys a ticket add a second to time elapsed
+                else:
+                    tickets[index] -= 1
+                    seconds += 1
+        return seconds
