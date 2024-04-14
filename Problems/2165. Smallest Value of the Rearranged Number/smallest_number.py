@@ -1,5 +1,6 @@
 class Solution:
     def smallestNumber(self, num: int) -> int:
+        # edge case 
         if num == 0:
             return 0
             
