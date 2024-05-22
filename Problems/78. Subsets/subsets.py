@@ -12,3 +12,16 @@ class Solution:
             # for i = 3 output += [[3], [1,3], [2,3], [1,2,3]]
             # output now = [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
         return output
+    
+    # use bitmanipulaition
+    def subsetsTwo(self, nums):
+        subsets = []
+        n = len(nums)
+        for i in range(1 << n):
+            curr_subset = []
+            for j in range(n):
+                if i & (1 << n):
+                    curr_subset.append(nums[j])
+            subsets.append(curr_subset)
+
+        return subsets
