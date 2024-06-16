@@ -1,3 +1,5 @@
+import heapq
+
 class Solution:
     def findMaximizedCapital(self, k, w, profits, capital):
         n = len(profits)
