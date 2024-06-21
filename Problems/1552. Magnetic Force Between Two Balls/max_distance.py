@@ -1,9 +1,11 @@
+import math
+
 class Solution:
     def maxDistance(self, position, m):
         position.sort()
 
         def is_possible(d):
-            ans, prev = 0, -inf
+            ans, prev = 0, -math.inf
             for i in position:
                 if i - prev >= d:
                     ans += 1
