@@ -37,3 +37,22 @@ class Solution:
 
         # return the max customers that can be satisfied
         return satisfied + most_made_satisfied
+    
+    def maxSatisfiedTwo(self, customers, grumpy, minutes):
+        satisfied = 0
+
+        for i in range(len(grumpy)):
+            if grumpy[i] == 0:
+                satisfied += customers[i]
+                customers[i] = 0
+        
+        most_made_satisfied = 0
+        curr_satisfied = 0
+
+        for idx, customers_in_store in enumerate(customers):
+            curr_satisfied += customers_in_store
+            if idx >= minutes:
+                curr_satisfied -= customers[idx - minutes]
+            most_made_satisfied = max(most_made_satisfied, curr_satisfied)
+
+        return satisfied + most_made_satisfied
