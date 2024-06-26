@@ -46,3 +46,31 @@ class Solution:
             return root
         
         return sorted_array_to_bst(node_list)
+    
+    ### Same as first cleaner way of creating the sorted list of the node values ###
+    def balanceBSTTwo(self, root):
+
+        # create the sorted list of the node values
+        def traverse_nodes(node):
+            # if no nodes return an empty list
+            if not node:
+                return []
+            # create a list of the node values recursively
+            return traverse_nodes(node.left) + [node.val] + traverse_nodes(node.right)
+        
+
+
+        node_list = traverse_nodes(root) 
+
+        node_list.sort()       
+        
+        def sorted_array_to_bst(nums):
+            if not nums:
+                return None
+            mid = len(nums) // 2
+            root = TreeNode(nums[mid])
+            root.left = sorted_array_to_bst(nums[:mid])
+            root.right = sorted_array_to_bst(nums[mid+1:])
+            return root
+
+        return sorted_array_to_bst(node_list)
