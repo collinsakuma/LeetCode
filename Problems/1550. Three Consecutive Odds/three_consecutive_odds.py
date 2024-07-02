@@ -6,3 +6,21 @@ class Solution:
                 if arr[i + 1] % 2 != 0 and arr[i + 2] % 2 != 0:
                     return True # if both are odd return True as a sequence of three odd numbers has been found
         return False
+    
+    def threeConsecutiveOddsTwo(self, arr):
+        count_odd = 0 # count of consecutive odd numbers
+
+        # loop through numbers in the list
+        for num in arr:
+            # if number is odd increment the count of consecutive odds
+            if num % 2 != 0:
+                count_odd += 1
+            # if number is even reset the count of consecutive odd numbers
+            else:
+                count_odd = 0
+            # if three consecutive odds found return True
+            if count_odd == 3:
+                return True
+        
+        # return False if no three consecutive odds found
+        return False
