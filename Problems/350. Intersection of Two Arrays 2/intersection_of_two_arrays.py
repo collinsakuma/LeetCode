@@ -29,3 +29,21 @@ class Solution:
         intersecting = count_nums1 & count_nums2
 
         return list(intersecting.elements())
+    
+
+    def intersectThree(self, nums1, nums2):
+        # create dicts for the two list with each number and their count in the list
+        count_1 = Counter(nums1)
+        count_2 = Counter(nums2)
+
+        # initalize an empty array to hold the intersecting numbers
+        intersecting = []
+
+        # loop though number in count_1
+        for num in count_1.keys():
+            # if that number is also in the other list
+            if num in count_2:
+                # add the number to the, as many times as the minimium occurance in either list
+                intersecting.extend(num * min(count_1[num], count_2[num]))
+
+        return intersecting 
