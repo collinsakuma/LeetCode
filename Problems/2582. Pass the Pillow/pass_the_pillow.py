@@ -15,7 +15,7 @@ class Solution:
                 direction = -1
             
             # if we reach the first person again reverse the direction again
-            if i == 1:
+            if index == 1:
                 direction = 1
 
             time -= 1 # reduce the time after the pillow is passed
