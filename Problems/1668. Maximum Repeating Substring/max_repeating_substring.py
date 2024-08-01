@@ -27,3 +27,14 @@ class Solution:
             k_repeating_word += word
         
         return len(k_repeating_word) // len(word) - 1
+
+
+    def maxRepeatingThree(self, sequence, word):
+        # use the constrains of the problem
+        # - 1 <= sequence.length <= 100 ( max length of sequence is 100 )
+        # - loop through a range of the maximum length the sequence can be plus 1
+        for i in range(1, 101):
+            # check if word repeated i times is in the sequence
+            if word * i not in sequence:
+                # return i - 1 when word i times is no longer in the sequence
+                return i - 1
