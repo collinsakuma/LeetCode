@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution:
     def canBeEqual(self, target, arr):
         for num in target: # loop though all numbers in target array
@@ -7,3 +9,6 @@ class Solution:
                 return False
         # if all num pass checks arrays can be made equal return True
         return True
+    
+    def canBeEqualTwo(self, target, arr):
+        return Counter(target) == Counter(arr)
