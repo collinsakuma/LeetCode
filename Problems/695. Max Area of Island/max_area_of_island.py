@@ -35,3 +35,21 @@ class Solution:
 
         # return the biggegst island 
         return self.biggest_island
+    
+    def maxAreaOfIslandTwo(self, grid):
+        max_island = 0
+
+        def island_size(row, column):
+            if row < 0 or column < 0 or row >= len(grid) or column >= len(grid[0]) or grid[row][column] != 1:
+                return 0
+            
+            grid[row][column] = 0
+
+            return island_size(row - 1, column) + island_size(row + 1, column) + island_size(row, column - 1) + island_size(row, column + 1) + 1
+        
+        for row in range(len(grid)):
+            for column in range(len(grid[0])):
+                if grid[row][column]:
+                    max_island = max(max_island, island_size(row, column))
+        
+        return max_island
