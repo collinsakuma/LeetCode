@@ -7,7 +7,7 @@ class Solution:
         # while minimum and maximum distances are different
         while min_distance < max_distnace:
             # find the distnace between the two
-            mid_distance = mid_distance + (max_distnace - min_distance) // 2
+            mid_distance = min_distance + (max_distnace - min_distance) // 2
             # set two pointer and count of pairs before the mid distance
             left, count = 0, 0
 
