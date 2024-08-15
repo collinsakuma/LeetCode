@@ -29,3 +29,38 @@ class Solution:
                     return False
         
         return True
+    
+    def lemonadeChangetwo(self, bills):
+        # only keep track of $5 and $10 bills as $20 bills cannot be used as change 
+        count_5, count_10 = 0, 0
+
+        # loop through bills
+        for bill in bills:
+            # if bill is a $5 increment count_5
+            if bill == 5:
+                count_5 += 1
+            # if bill is a $10 increment count_10
+            elif bill == 10:
+                count_10 += 1
+                # check if we have any $5 for change
+                if not count_5:
+                    # if there are no $5 for change return False
+                    return False
+                # decrement count of $5's
+                count_5 -= 1
+            # last case is if the bill is a $20
+            else:
+                # if there are $5's and $10's available
+                if count_5 and count_10:
+                    # use one of each for the change
+                    count_10 -= 1
+                    count_5 -= 1
+                # if there are no $10's but we have at least 3 $5's
+                # give the change back in $5's, reduce count accordinly
+                elif count_5 > 2:
+                    count_5 -= 1
+                else:
+                    # we dont have the necessary bills to give change return False
+                    return False
+            # all bill are completed with correct change return True
+            return True
