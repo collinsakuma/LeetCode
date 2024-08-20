@@ -29,3 +29,16 @@ class Solution:
                 output.append(word)
         
         return output # return list of uncommon words
+    
+    # second cleaner solution
+    def uncommonFromSentences(self, s1, s2):
+        # split the strings
+        s1, s2 = s1.split(), s2.split()
+
+        # create one dictonary for both the strings
+        counter = Counter(s1 + s2)
+        # sort the dict by values in ascending order
+        counter = sorted(counter.items(), key = lambda x:x[1])
+
+        # return a list of words that appear only once in the dict
+        return [word[0] for word in counter if word[1] == 1]
