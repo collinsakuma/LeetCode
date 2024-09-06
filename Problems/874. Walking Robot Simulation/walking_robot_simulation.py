@@ -51,3 +51,31 @@ class Solution:
             max_distance = max(max_distance, (location[0]**2) + (location[1]**2)) 
             
         return max_distance
+    
+    def robotSimTwo(self, commands, obstacles):
+        x, y, d = 0, 0, 0
+        # directions for north, south, east west
+        direction = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+        max_distance = 0 # track max distance
+        obstacles = set(map(tuple, obstacles)) # create a set of the obstacles
+
+        # loop through the commands
+        for command in commands:
+            # if the command is to change direction set a new direction
+            if command == -1:
+                d = (d + 1) % 4
+            elif command == -2:
+                d = (d - 1) % 4
+            else:
+                # loop through the command distance
+                for _ in range(command):
+                    # set new x or y position
+                    nx, ny = x + direction[d][0], y + direction[d][1]
+                    if (nx, ny) in obstacles:
+                        # if an obstacle is reached break from the command
+                        break
+                    x, y = nx, ny
+                    # find the max distance
+                    max_distance = max(max_distance, x**2 + y**2)
+        
+        return max_distance # return the max distance
