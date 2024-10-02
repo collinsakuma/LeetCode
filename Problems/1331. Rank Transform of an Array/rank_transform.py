@@ -15,3 +15,8 @@ class Solution:
             ranked_arr.append(rank[arr[i]])
         
         return ranked_arr
+    
+    def arrayRankTransformTwo(self, arr):
+        # list comprehension of original answer
+        rank = {element: i + 1 for i, element in enumerate(sorted(set(arr)))}
+        return list(map(rank.get, arr))
