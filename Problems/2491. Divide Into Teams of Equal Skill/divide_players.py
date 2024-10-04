@@ -7,6 +7,8 @@ class Solution:
         team_skill = math.inf # set inital skill of teams to infinity
         chemistry = 0 # set initial chemistry to 0
 
+        skill.sort() # sor the players by skill
+
         # loop through number of teams
         for _ in range(n):
             # always pair least and most skilled player together
