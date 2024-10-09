@@ -3,6 +3,7 @@ class Solution:
         # while AB or CD are still in the string continue the loop
         while 'AB' in s or 'CD' in s:
             # loop through range of length s minus 1
+            # skip last index beacuse we are checking by 2's
             for i in range(len(s) - 1):
                 # check if segment is AB or CD
                 if s[i:i + 2] == 'AB' or s[i:i + 2] == 'CD':
