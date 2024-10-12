@@ -15,3 +15,29 @@ class Solution:
                     break
         
         return max_width # return the max width
+    
+    def maxWidthRampTwo(self, nums):
+        # initialize a stack and save the length of nums as a variable
+        n = len(nums)
+        stack = []
+
+        # loop through range
+        for i in range(n):
+            # if no nums in stack or if last number in the stack is greater than nums[i]
+            if not stack or nums[stack[-1]] > nums[i]:
+                # add the number to the stack
+                stack.append(i)
+
+        # set answer
+        ans = 0
+
+        # loop through range backwards
+        for i in range(n - 1, 0, -1):
+            # while stack and condition still met
+            while stack and nums[stack[-1]] <= nums[i]:
+                # check for a new widest ramp
+                ans = max(ans, i - stack[-1])
+                # pop from the stack
+                stack.pop()
+
+        return ans
