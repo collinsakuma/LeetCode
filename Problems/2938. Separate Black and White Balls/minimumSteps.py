@@ -10,4 +10,4 @@ class Solution:
             # when a 1 is encountered, add to the output the number of 0's already encountered
             else: output += count_0
 
-        return output
+        return output # return min steps
