@@ -32,3 +32,17 @@ class Solution:
         dfs(root.new_root) # invert the tree
 
         return new_root # return the inverted tree
+    
+    def invertTreeTwo(self, root):
+        # if binary tree is empty return an the empty tree
+        if not root:
+            return root
+        
+        # recursively invert the tree
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        # swap the left and right values of the nodes
+        root.left, root.right = root.right, root.left
+
+        return root # return the inverted binary tree
