@@ -1,7 +1,7 @@
 class Solution:
     def countSquares(self, matrix):
         m, n = len(matrix), len(matrix[0])
-        # create DP
+        # create dp
         dp = [[0] * (n+1) for _ in range(m+1)]
         ans = 0
         # loop through range of 2D matrix
