@@ -12,3 +12,18 @@ class Solution:
                 stack.pop()
             stack.append(i) # append i to the stack.
         return ''.join(stack) # join the stack into a string and return said string
+    
+
+    def makeFancyStringTwo(self, s):
+        fancy_s = '' # string to hold fancy string
+        for ch in s: # loop through characters in s
+            # if the string does not have 2 characters in it yet add the characters
+            if len(fancy_s) < 2:
+                fancy_s += ch
+            # check for three consecutive characters if three in a row skip character
+            elif ch == fancy_s[-1] == fancy_s[-2]:
+                continue
+            # add the character 
+            else:
+                fancy_s += ch
+        return fancy_s
