@@ -13,7 +13,7 @@ class Solution:
             stack.append(i) # append i to the stack.
         return ''.join(stack) # join the stack into a string and return said string
     
-
+    # second solution 11/1/2024
     def makeFancyStringTwo(self, s):
         fancy_s = '' # string to hold fancy string
         for ch in s: # loop through characters in s
