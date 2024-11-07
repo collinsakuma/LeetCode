@@ -1,6 +1,6 @@
 class Solution:
     def minChanges(self, s):
-        changes = 0
+        changes = 0 # count of changes
 
         # loop through range of string, in increments of 2
         for i in range(0, len(s) - 1, 2):
