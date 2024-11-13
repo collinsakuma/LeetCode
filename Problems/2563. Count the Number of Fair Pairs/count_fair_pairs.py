@@ -25,4 +25,27 @@ class Solution:
                 if lower <= (nums[i] + nums[j]) <= upper:
                     output += 1
 
-        return output           
+        return output    
+
+    def countFairPairsTwo(self, nums, lower, upper):
+        nums.sort()
+        output = 0
+
+        low = high = len(nums) - 1
+
+        for index, num in enumerate(nums):
+            # increment the upper bound down until num + nums[high] goes lower than upper bound
+            while 0 <= high and num + nums[high] > upper:
+                # incrment high down with each loop
+                high -= 1
+            # increment low down until num + nums[low] is less than the lower limit
+            while 0 <= low and num + nums[low] >= lower:
+                # increment low down
+                low -= 1
+            
+            output += high - low # add the number of fair pairs
+
+            if low < index <= high: # remove duplace pair (low, low) if in pairs
+                output -= 1
+
+        return output // 2
