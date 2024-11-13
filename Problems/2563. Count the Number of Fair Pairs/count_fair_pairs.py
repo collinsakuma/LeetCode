@@ -14,3 +14,15 @@ class Solution:
 
         return count(upper) - count(lower - 1)
     
+    ### Solution works on shorter list of nums, TLE encountered once nums increases in length
+    ### nested for loops not optimal for runtime (Duhhhh)
+    def countFairPairsTLE1(self, nums, lower, upper):
+        nums.sort()
+        output = 0
+
+        for i in range(len(nums) - 1):
+            for j in range(i + 1, len(nums)):
+                if lower <= (nums[i] + nums[j]) <= upper:
+                    output += 1
+
+        return output           
