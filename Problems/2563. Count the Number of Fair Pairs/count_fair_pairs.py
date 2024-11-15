@@ -48,4 +48,4 @@ class Solution:
             if low < index <= high: # remove duplace pair (low, low) if in pairs
                 output -= 1
 
-        return output // 2
+        return output // 2 
