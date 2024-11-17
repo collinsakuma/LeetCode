@@ -19,9 +19,10 @@ class Solution:
     def countFairPairsTLE1(self, nums, lower, upper):
         nums.sort()
         output = 0
-
+        # loop through all possible pairs
         for i in range(len(nums) - 1):
             for j in range(i + 1, len(nums)):
+                # if pair is fiar increase count of fair pairs
                 if lower <= (nums[i] + nums[j]) <= upper:
                     output += 1
 
