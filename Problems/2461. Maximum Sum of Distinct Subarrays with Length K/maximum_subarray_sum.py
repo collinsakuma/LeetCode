@@ -11,3 +11,35 @@ class Solution:
                 max_subarray = max(max_subarray, sum(max_subarray))
 
         return max_subarray # return the max sum of a subarray of length k
+    
+    ## second solution better than the first but still TLE
+    # create a array that changes as the list of nums in itterated over 
+    # check if new number is already in the list, if already there remove
+    # numbers until dupilcate is removed
+    def maximumSubarraySumTWO(self, nums, k):
+        max_subarray = 0
+        curr_sum = 0
+        window = []
+
+        # loop through nums
+        for num in nums:
+            # if the num is already in the list remove until no duplicate
+            while num in window:
+                removed = window.pop(0)
+                # reduce current sum of the list
+                curr_sum -= removed
+            # if th current length of the list is k, remove one element and add the new one
+            if len(window) == k:
+                removed = window.pop(0)
+                curr_sum -= removed
+                window.append(num)
+                curr_sum += num
+            # add number to the list if not a duplicate or array not at length k
+            else:
+                window.append(num)
+                curr_sum += num
+            # if array is of length k check if its sum is a new max sum
+            if len(window) == k:
+                max_subarray = max(max_subarray, curr_sum)
+        
+        return max_subarray
