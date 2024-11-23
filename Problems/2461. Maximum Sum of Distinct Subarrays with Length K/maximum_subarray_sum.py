@@ -43,3 +43,29 @@ class Solution:
                 max_subarray = max(max_subarray, curr_sum)
         
         return max_subarray
+    
+    # third solution passes all test
+    def maximumSubarraySumThree(self, nums, k):
+        left, right = 0, 0
+        max_sum, total = 0, 0
+
+        seen = set()
+
+        while right < len(nums):
+            while nums[right] in seen:
+                total -= nums[left]
+                seen.remove(nums[left])
+                left += 1
+
+            total += nums[right]
+            seen.add(nums[right])
+
+            if (right - left + 1) == k:
+                max_sum = max(max_sum, total)
+                total -= nums[left]
+                seen.remove(nums[left])
+                left += 1
+            
+            right += 1
+
+        return max_sum
