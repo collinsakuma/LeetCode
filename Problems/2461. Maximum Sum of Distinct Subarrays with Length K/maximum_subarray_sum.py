@@ -45,6 +45,7 @@ class Solution:
         return max_subarray
     
     # third solution passes all test
+    # use seen set instead of array of current numbers
     def maximumSubarraySumThree(self, nums, k):
         left, right = 0, 0
         max_sum, total = 0, 0
