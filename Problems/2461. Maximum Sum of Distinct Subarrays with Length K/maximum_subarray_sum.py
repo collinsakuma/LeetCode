@@ -50,7 +50,7 @@ class Solution:
         left, right = 0, 0
         max_sum, total = 0, 0
 
-        seen = set()
+        seen = set() # track seen numbers
 
         while right < len(nums):
             while nums[right] in seen:
