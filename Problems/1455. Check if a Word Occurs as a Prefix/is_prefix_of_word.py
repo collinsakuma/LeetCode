@@ -9,6 +9,7 @@ class Solution:
     
 
     # second solution using build in function enumerate() 
+    # 12/2/2024 question of the day came up with same solution
     # same basic idea of how to solve problem just a build in instaed of range
     def isPrefixOfWordTwo(self, sentence, searchWord):
         sentence_arr = sentence.split(" ")
