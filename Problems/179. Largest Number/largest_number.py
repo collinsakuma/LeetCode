@@ -4,6 +4,7 @@ class Solution:
         # sort the list 
         arr.sort(key=lambda x:x*10, reverse=True)
 
+        # if first number is 0 return 0
         if arr[0] == '0':
             return '0'
         
