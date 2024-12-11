@@ -24,3 +24,32 @@ class Solution:
                     output.append(True)
 
         return output
+    
+    def isArraySpecialTwo(self, nums, queries):
+        # list of non repeating subarrays
+        sub_arrays = []
+        # queries output set to False by default
+        output = [False for _ in range(len(queries))]
+        curr = 0 # curr position in nums list
+
+        # loop through index of nums (second of two pointers)
+        for idx in range(1,len(nums)):
+            # if parity is the same between the two adjacent elements 
+            if nums[idx - 1] % 2 == nums[idx] % 2:
+                # add to the non interesecting subarrays
+                sub_arrays.append([curr, idx - 1])
+                # set new starting point of next sub array
+                curr = idx
+        # add the last subarry to the list of non intersecting subarrays
+        sub_arrays.append([curr, len(nums) - 1])
+
+
+        # loop through queries
+        for index, (x, y) in enumerate(queries):
+            # check each subarray if the query is a special subarray
+            for (i, j) in sub_arrays:
+                if x >= i and y <= j:
+                    # if special set that query to true
+                    output[index] = True
+                    break
+        return output
