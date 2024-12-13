@@ -21,8 +21,8 @@ class Solution:
         sub_strings = [string for string, count in sub_strings.items() if count >= 3]
 
         # if there are no substrings that occur at least three times return -1
-        # else return the length of the longest substring
         if not sub_strings:
             return -1
+        # else return the length of the longest substring
         else:
             return len(max(sub_strings, key=len, default=None))
