@@ -14,4 +14,4 @@ class Solution:
                 if idx < n - 1:
                     nums[idx + 1] = -1 # mark right neighbor
 
-        return score
+        return score # return score
