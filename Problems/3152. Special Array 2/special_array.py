@@ -18,6 +18,7 @@ class Solution:
             if x == y:
                 output.append(True)
             else:
+                # validate prefix sum and if it meets conditions
                 if prefix_sum[y] - prefix_sum[x] > 0:
                     output.append(False)
                 else:
