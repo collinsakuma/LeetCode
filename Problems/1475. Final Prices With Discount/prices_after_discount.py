@@ -8,3 +8,15 @@ class Solution:
                     final_price[i] = prices[i] - j # change price by price[i] - j (the discount)
                     break # exit second loop as the discount has been found for i
         return final_price 
+    
+    # second solution question of the day 12/18/2024
+    def finalPricesTwo(self, prices):
+        output = [0 for _ in range(len(prices))]
+
+        for idx, price in enumerate(prices):
+            output[idx] = price
+            for discount in prices[idx + 1:]:
+                if discount <= price:
+                    output[idx] -= discount
+                    break
+        return output
