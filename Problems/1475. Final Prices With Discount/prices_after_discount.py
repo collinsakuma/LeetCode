@@ -11,12 +11,19 @@ class Solution:
     
     # second solution question of the day 12/18/2024
     def finalPricesTwo(self, prices):
+        # create output list
         output = [0 for _ in range(len(prices))]
 
+        # loop through prices tracking their index
         for idx, price in enumerate(prices):
+            # set final price to price initially
             output[idx] = price
+            # loop through the discounts
             for discount in prices[idx + 1:]:
+                # if a discount is less than the price apply the discount
                 if discount <= price:
                     output[idx] -= discount
+                    # break from loop becuase we only take the first lower discount 
+                    # no the lowest discount possible
                     break
         return output
