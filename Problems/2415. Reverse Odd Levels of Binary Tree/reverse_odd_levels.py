@@ -31,4 +31,4 @@ class Solution:
             # set new tree
             tree = temp_tree
         
-        return root
+        return root # return the root beacuse the copy of the original tree also modifies root
