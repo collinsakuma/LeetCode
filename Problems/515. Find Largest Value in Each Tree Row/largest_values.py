@@ -9,7 +9,7 @@ class Solution:
         # if no nodes in root return an empty list
         if not root: return []
 
-        largest_values = []
+        largest_values = [] # array or largest values
 
         def traverse_tree(node, level):
             # if a new row of the binary tree is reached add a new largest value for that row
