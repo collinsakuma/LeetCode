@@ -1,3 +1,4 @@
+# create binary tree class
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
