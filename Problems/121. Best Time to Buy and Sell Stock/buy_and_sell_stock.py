@@ -10,3 +10,19 @@ class Solution:
             min_purchase = min(min_purchase, prices[i])
 
         return max_profit # return the max profit attainable or 0 if no profit can be made
+    
+
+    # solution from 1/7/2025 # results in TLE
+    def maxProfitTwo(self, prices):
+        dp = [0] * len(prices) # create a DP
+
+        # loop through prices
+        for i in range(len(prices)):
+            # check if price i is less than max of all remaining prices
+            if prices[i] < max(prices[i:]):
+                # if there is a higher sell prices remaining find the max profit
+                # at buy price i
+                dp[i] = max(prices[i:]) - prices[i]
+
+
+        return max(dp) # return the highest profit possible
